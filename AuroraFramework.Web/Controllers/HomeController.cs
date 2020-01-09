@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AuroraFramework.IServices;
+using AuroraFramework.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +27,13 @@ namespace AuroraFramework.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public int Get(int i, int j)
+        {
+            ISystemUserServices services = new SystemUserServices();
+            return services.Sum(i, j);
         }
     }
 }
