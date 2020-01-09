@@ -1,7 +1,9 @@
 ﻿using Autofac;
+using Autofac.Integration.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 
@@ -13,7 +15,10 @@ namespace AuroraFramework.API.App_Start
         {
             ContainerBuilder builder = new ContainerBuilder();
             HttpConfiguration config = GlobalConfiguration.Configuration;
-            //https://www.cnblogs.com/mojo/p/7290351.html
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("Services")).AsImplementedInterfaces();
+            var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }

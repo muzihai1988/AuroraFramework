@@ -1,3 +1,4 @@
+using AuroraFramework.API.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace AuroraFramework.API
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Autofac“¿¿µ◊¢»Î
+            AutofacConfig.RegisterDependencies();
         }
     }
 }

@@ -52,6 +52,9 @@
     <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.3.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.3.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -171,6 +174,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SystemUserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -345,6 +349,28 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuroraFramework.IRepository\AuroraFramework.IRepository.csproj">
+      <Project>{4aa6b7b2-6b3a-4128-87c0-7108bcf39141}</Project>
+      <Name>AuroraFramework.IRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuroraFramework.IServices\AuroraFramework.IServices.csproj">
+      <Project>{7b02ab69-416d-45a8-a505-dfa57e421f98}</Project>
+      <Name>AuroraFramework.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuroraFramework.Model\AuroraFramework.Model.csproj">
+      <Project>{9e0c6385-e3b9-4dad-bde1-78a82bf3329f}</Project>
+      <Name>AuroraFramework.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuroraFramework.Repository\AuroraFramework.Repository.csproj">
+      <Project>{58cca243-7e5c-4c19-942d-0148b455d960}</Project>
+      <Name>AuroraFramework.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuroraFramework.Services\AuroraFramework.Services.csproj">
+      <Project>{9997b9cb-3ec1-4e85-8d9c-ad541616a425}</Project>
+      <Name>AuroraFramework.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
