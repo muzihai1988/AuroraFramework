@@ -27,13 +27,6 @@ namespace AuroraFramework.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        [HttpGet]
-        public int Get(int i, int j)
-        {
-            ISystemUserServices services = new SystemUserServices();
-            return services.Sum(i, j);
-        }
+        }      
     }
 }
