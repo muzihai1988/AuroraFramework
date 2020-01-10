@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SqlSugar;
-
+using System.Configuration;
 
 namespace AuroraFramework.Repository.Base
 {
@@ -17,15 +17,22 @@ namespace AuroraFramework.Repository.Base
         {
             get
             {
-                if (typeof(TEntity).GetTypeInfo().GetCustomAttributes(typeof(SugarTable), true).FirstOrDefault((x => x.GetType() == typeof(SugarTable))) is SugarTable sugarTable && !string.IsNullOrEmpty(sugarTable.TableDescription))
+                //if (typeof(TEntity).GetTypeInfo().GetCustomAttributes(typeof(SugarTable), true).FirstOrDefault((x => x.GetType() == typeof(SugarTable))) is SugarTable sugarTable && !string.IsNullOrEmpty(sugarTable.TableDescription))
+                //{
+                //    _dbBase.ChangeDatabase(sugarTable.TableDescription.ToLower());
+                //}
+                //else
+                //{
+                //    _dbBase.ChangeDatabase("1");
+                //}
+                _dbBase = new SqlSugarClient(new ConnectionConfig()
                 {
-                    _dbBase.ChangeDatabase(sugarTable.TableDescription.ToLower());
-                }
-                else
-                {
-                    _dbBase.ChangeDatabase("1");
-
-                }
+                    ConnectionString = ConfigurationManager.ConnectionStrings["SQLConnection"].ConnectionString,
+                    DbType = DbType.SqlServer,
+                    InitKeyType = InitKeyType.Attribute,//从特性读取主键和自增列信息
+                    IsAutoCloseConnection = true,//开启自动释放模式和EF原理一样我就不多解释了
+                    IsShardSameThread = true//设为true相同线程是同一个SqlConnection
+                });
                 return _dbBase;
             }
         }

@@ -35,6 +35,7 @@
       <HintPath>..\packages\sqlSugar.5.0.0.12\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

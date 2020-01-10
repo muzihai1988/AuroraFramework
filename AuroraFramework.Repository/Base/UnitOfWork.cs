@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace AuroraFramework.Repository.Base
 {
+    /// <summary>
+    /// 工作单元（数据持久化）
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ISqlSugarClient _sqlSugarClient;

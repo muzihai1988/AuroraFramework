@@ -16,7 +16,7 @@ namespace AuroraFramework.API.App_Start
             ContainerBuilder builder = new ContainerBuilder();
             HttpConfiguration config = GlobalConfiguration.Configuration;
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("Services")).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces();
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }

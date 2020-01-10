@@ -13,12 +13,12 @@ namespace AuroraFramework.API.Controllers
 {
     public class SystemUserController : ApiController
     {
-        private readonly IUnitOfWork _unitOfWork;
+        //private readonly IUnitOfWork _unitOfWork;
         private ISystemUserServices _systemUserServices;
 
-        public SystemUserController(IUnitOfWork unitOfWork, ISystemUserServices systemUserServices)
+        public SystemUserController( ISystemUserServices systemUserServices)
         {
-            _unitOfWork = unitOfWork;
+            //_unitOfWork = unitOfWork;
             _systemUserServices = systemUserServices;
         }
 

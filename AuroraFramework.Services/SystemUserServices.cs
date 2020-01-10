@@ -13,16 +13,16 @@ namespace AuroraFramework.Services
 {
     public class SystemUserServices : BaseServices<SystemUser>, ISystemUserServices
     {
-        ISystemUserRepository _dal;
-        public SystemUserServices(ISystemUserRepository dal)
+        ISystemUserRepository _repository;
+        public SystemUserServices(ISystemUserRepository repository)
         {
-            this._dal = dal;
-            base.BaseDAL = dal;
+            this._repository = repository;
+            base.BaseRepository = repository;
         }
 
         public async Task<List<SystemUser>> GetSystemUsers()
         {
-            return await _dal.Query();
+            return await _repository.Query();
         }
     }
 }
